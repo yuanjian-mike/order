@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yj.order.dao.UserDao" >
+    <resultMap id="BaseResultMap" type="com.yj.order.model.User" >
+        <id column="id" property="id"/>
+        <result column="uuid" property="uuid"/>
+        <result column="order_id" property="orderId"/>
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="nick_name" property="nickName"/>
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, uuid, order_id, user_id, user_name, password, nick_name
+    </sql>
+
+    <insert id="insert" parameterType="com.yj.order.model.User" >
+        INSERT INTO user_info
+        (id, uuid, order_id, user_id, user_name, password, nick_name)
+        VALUES
+        (#{id},#{uuid},#{orderId}, #{userId}, #{userName},#{password},#{nickName})
+    </insert>
+
+</mapper>
